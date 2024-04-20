@@ -51,7 +51,7 @@ docker build
 
 Após isso você terá a seguinte visão no seu terminal.
 
-<img align="center" src="image_build.png">
+<img align="center" src="https://github.com/RogerioLS/EML-1.2-DoNotebook-Para-Producao/blob/main/sources/images/image_build.png">
 
 ### Rodar nossa aplicação com flask
 Para rodar nossa aplicação vamos utilizar o seguinte comando:
@@ -66,7 +66,7 @@ docker ps
 ```
 Após isso você terá a seguinte visão no seu terminal.
 
-<img align="center" src="image_run.png">
+<img align="center" src="https://github.com/RogerioLS/EML-1.2-DoNotebook-Para-Producao/blob/main/sources/images/image_run.png">
 
 Prontinho, se todos os passos acima deram certo agora podemos testar nossa apricação.
 
@@ -86,4 +86,4 @@ make doci
 ```
 O **doccs** garante que vamos dar um stop no nosso contaneir, **docip** remover todas as imagens que não estão em uso de uma vez, e o, **doci** é para vermos se não temos de fato mais nenhuma imagem e container.
 
-<img align="center" src="image_encerrar.png">
+<img align="center" src="https://github.com/RogerioLS/EML-1.2-DoNotebook-Para-Producao/blob/main/sources/images/image_encerrar.png">
