@@ -49,7 +49,7 @@ jobs:
       run: make doci
 
   test:
-    needs: validate
+    needs: jobs
     runs-on: ubuntu-latest
 
     steps:
