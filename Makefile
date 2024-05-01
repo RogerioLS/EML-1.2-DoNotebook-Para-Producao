@@ -8,15 +8,15 @@ all: build
 
 build:
 	docker build -t modelo:churn .
-	@echo $(CYAN)" ------------------------------------------"$(COLOR_LIMITER)
+	@echo $(CYAN)" ------------------------------------------ "$(COLOR_LIMITER)
 	@echo $(CYAN)"| Docker build whit created successfully!! |"$(COLOR_LIMITER)
-	@echo $(CYAN)"-------------------------------------------"$(COLOR_LIMITER)
+	@echo $(CYAN)" ------------------------------------------ "$(COLOR_LIMITER)
 
 run:
 	docker run -d -p 5000:5000 --rm --name modelo-churn-container modelo:churn
-	@echo $(CYAN)" ----------------------------------------"$(COLOR_LIMITER)
+	@echo $(CYAN)" ---------------------------------------- "$(COLOR_LIMITER)
 	@echo $(CYAN)"| Docker run whit created successfully!! |"$(COLOR_LIMITER)
-	@echo $(CYAN)"-----------------------------------------"$(COLOR_LIMITER)
+	@echo $(CYAN)" ---------------------------------------- "$(COLOR_LIMITER)
 
 test:
 	python sources/app/test_api.py

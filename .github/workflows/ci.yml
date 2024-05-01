@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+      - cron: '00 12 */15 * *'
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Docker Engine
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+        sudo apt-get update
+        sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
+    - name: Install Make
+      run: sudo apt-get install -y make
+
+    - name: Build Docker Image
+      run: make
+
+    - name: Run Docker Container
+      run: make run
+
+    - name: Run Image Docker
+      run: make doci
+
+    - name: Execute Tests
+      run: make test
+
+    - name: Cleanup Docker Containers
+      if: always()
+      run: make doccs
+
+    - name: Cleanup Docker Images
+      if: always()
+      run: make docip
+
+    - name: Run Image Docker
+      if: always()
+      run: make doci
