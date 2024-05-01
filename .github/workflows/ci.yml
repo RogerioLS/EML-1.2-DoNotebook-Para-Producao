@@ -48,6 +48,12 @@ jobs:
     - name: Run Image Docker
       run: make doci
 
+    - name: Wait for Container to be Ready
+      run: |
+        for i in {1..3}; do
+          curl -f http://localhost:5000/ && break || sleep 10;
+        done
+
     - name: Check port accessibility
       run: |
         sudo netstat -tuln | grep 5000
