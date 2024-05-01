@@ -1,4 +1,12 @@
+<div align = center>
+
 # Predição de churn
+
+![CI](https://github.com/RogerioLS/EML-1.2-DoNotebook-Para-Producao/actions/workflows/ci.yml/badge.svg)
+
+[Contribution guidelines for this project](docs/CI.md)
+
+</div>
 
 ---
 
