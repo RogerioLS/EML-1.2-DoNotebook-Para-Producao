@@ -48,25 +48,31 @@ jobs:
     - name: Run Image Docker
       run: make doci
 
-  test:
-    needs: build-and-run
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Install Python and pip
+    - name: Check Docker Container
       run: |
-        sudo apt-get update
-        sudo apt-get install -y python3 python3-pip
+        docker ps | grep modelo-churn-container
 
-    - name: Install dependencies
+    - name: Wait for Container to be Ready
       run: |
-        python3 -m pip install numpy requests
+        for i in {1..10}; do
+          curl -f http://localhost:5000/ && break || sleep 10;
+        done
 
-    - name: Install Make
-      run: sudo apt-get install -y make
+    - name: Check port accessibility
+      run: |
+        sudo netstat -tuln | grep 5000
 
     - name: Execute Tests
       run: make test
+
+    - name: Cleanup Docker Containers
+      if: always()
+      run: make doccs
+
+    - name: Cleanup Docker Images
+      if: always()
+      run: make docip
+
+    - name: Run Image Docker
+      if: always()
+      run: make doci
