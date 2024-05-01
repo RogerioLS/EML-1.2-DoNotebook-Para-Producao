@@ -4,7 +4,7 @@
 
 ![CI](https://github.com/RogerioLS/EML-1.2-DoNotebook-Para-Producao/actions/workflows/ci.yml/badge.svg)
 
-[Contribution guidelines for this project](docs/CI.md)
+[Docs CI](sources/docs/CI.md)
 
 </div>
 
