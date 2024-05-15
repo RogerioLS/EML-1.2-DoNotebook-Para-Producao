@@ -74,7 +74,7 @@ jobs:
       run: make doci
 
   deploy:
-    needs: build-and-test
+    needs: build-and-run
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
