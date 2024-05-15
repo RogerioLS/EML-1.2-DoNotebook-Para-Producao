@@ -114,10 +114,6 @@ jobs:
     - name: Push Docker Image to Docker Hub
       run: make publish
 
-    - name: Cleanup Docker Containers
-      if: always()
-      run: make doccs
-
     - name: Cleanup Docker Images
       if: always()
       run: make docip
