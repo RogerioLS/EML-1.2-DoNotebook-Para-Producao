@@ -18,6 +18,13 @@ run:
 	@echo $(CYAN)"| Docker run whit created successfully!! |"$(COLOR_LIMITER)
 	@echo $(CYAN)" ---------------------------------------- "$(COLOR_LIMITER)
 
+publish:
+	docker tag modelo:churn rogeriols/modelo:churn
+	docker push rogeriols/modelo:churn
+	@echo $(CYAN)" -------------------------------------------------- "$(COLOR_LIMITER)
+	@echo $(CYAN)"| Docker image successfully published to Docker Hub |"$(COLOR_LIMITER)
+	@echo $(CYAN)" -------------------------------------------------- "$(COLOR_LIMITER)
+
 test:
 	python sources/app/test_api.py
 
